@@ -1,65 +1,63 @@
-import Image from "next/image";
+"use client";
 
 export default function Home() {
+  const features = [
+    { id: "endpoints", icon: "📊", title: "8 Endpoints", desc: "Dokumentasi lengkap untuk semua resource.", href: "/docs" },
+    { id: "crud", icon: "⚡", title: "CRUD Ready", desc: "Mendukung metode GET, POST, PUT, DELETE.", href: "/dashboard" },
+    { id: "security", icon: "🔒", title: "Secure API", desc: "Autentikasi aman dengan API KEY.", href: "/login" },
+    { id: "live", icon: "📡", title: "Live Data", desc: "Update statistik real-time.", href: "/dashboard" }
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-gray-50">
+      {/* Navbar */}
+      <nav className="flex gap-6 p-6 bg-white border-b items-center">
+        <h1 className="font-bold text-xl text-blue-600">FC API HUB</h1>
+        <a href="/" className="font-semibold text-gray-600 hover:text-blue-600">Home</a>
+        <a href="/login" className="font-semibold text-gray-600 hover:text-blue-600">Login</a>
+        <a href="/dashboard" className="ml-auto bg-blue-600 text-white px-5 py-2 rounded-lg font-bold hover:bg-blue-700 transition">Web Client</a>
+      </nav>
+
+      {/* Hero Section */}
+      <header className="text-center py-20 px-6">
+        <h1 className="text-5xl font-extrabold mb-6">
+          Football Club <span className="text-blue-600">Squad Management API</span>
+        </h1>
+        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Platform API untuk mengelola data pemain, riwayat cedera, dan statistik tim secara real-time.
+        </p>
+        <div className="flex justify-center gap-4">
+          <a href="/register" className="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition">Daftar Sekarang</a>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </header>
+
+      {/* Peringatan Login (Meniru referensi gambar Anda) */}
+      <section className="max-w-4xl mx-auto px-6 mb-12">
+        <div className="bg-amber-100 border-l-4 border-amber-500 p-6 rounded-r-2xl shadow-sm text-amber-900">
+          <p className="font-bold">🔑 Anda harus login terlebih dahulu untuk mendapatkan API KEY.</p>
+          <p className="text-sm">API KEY digunakan untuk mengakses semua endpoint dalam sistem ini.</p>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Grid Features */}
+      <section className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-6 mb-20">
+        {features.map((item) => (
+          <div 
+            key={item.id} 
+            onClick={() => window.location.href = item.href}
+            className="bg-white p-6 rounded-2xl shadow-sm border cursor-pointer hover:shadow-xl hover:border-blue-300 transition transform hover:-translate-y-1"
+          >
+            <div className="text-3xl mb-4">{item.icon}</div>
+            <h3 className="text-xl font-bold">{item.title}</h3>
+            <p className="text-gray-500 text-sm mt-1">{item.desc}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Footer */}
+      <footer className="py-10 text-center text-gray-400 text-sm border-t">
+        <p>&copy; 2026 Football Club API Hub. Dibuat untuk Ujian Akhir Semester.</p>
+      </footer>
+    </main>
   );
 }
