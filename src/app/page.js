@@ -60,7 +60,7 @@ export default function Home() {
 
       {/* Single Footer */}
       <footer className="py-10 text-center text-slate-600 text-sm border-t border-slate-900">
-        <p>&copy; 2026 Football Club Squad Manager. Dibuat untuk Ujian Akhir Semester Pemrograman API.</p>
+        <p>&copy; 2026 Football Club Squad Manager. Kelompok 6 .</p>
       </footer>
     </main>
   );

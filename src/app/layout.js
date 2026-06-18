@@ -35,10 +35,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
 
-        {/* Opsional: Tambahkan Footer jika mau */}
-        <footer className="text-center p-6 text-slate-600 text-sm border-t border-slate-900">
-          UAS Pemrograman API - Football Squad Manager © 2026
-        </footer>
+       
         
       </body>
     </html>
