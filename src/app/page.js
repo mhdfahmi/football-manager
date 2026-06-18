@@ -2,7 +2,7 @@
 
 export default function Home() {
   const features = [
-    { id: "endpoints", icon: "📊", title: "8 Endpoints", desc: "Dokumentasi lengkap untuk semua resource.", href: "/docs" },
+    { id: "endpoints", icon: "📊", title: "9 Endpoints", desc: "Dokumentasi lengkap untuk semua resource.", href: "/docs" },
     { id: "crud", icon: "⚡", title: "CRUD Ready", desc: "Mendukung metode GET, POST, PUT, DELETE.", href: "/dashboard" },
     { id: "security", icon: "🔒", title: "Secure API", desc: "Autentikasi aman dengan API KEY.", href: "/login" },
     { id: "live", icon: "📡", title: "Live Data", desc: "Update statistik real-time.", href: "/dashboard" }
