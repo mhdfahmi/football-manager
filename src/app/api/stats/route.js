@@ -1,12 +1,17 @@
 import { NextResponse } from 'next/server';
+import { playersDatabase } from '../db'; // Import data dinamis
 
 export async function GET() {
-  // Contoh logika: Menghitung total data dari berbagai resource
-  const stats = {
-    totalPlayers: 15,
-    totalInjuries: 3,
-    activeClubs: 8,
-    systemStatus: "Healthy"
-  };
-  return NextResponse.json(stats);
+  try {
+    // Menghitung jumlah secara dinamis dari array database
+    const stats = {
+      totalPlayers: playersDatabase.length, 
+      systemStatus: playersDatabase.length > 0 ? "Healthy" : "Empty",
+      lastUpdated: new Date().toISOString()
+    };
+    
+    return NextResponse.json(stats);
+  } catch (error) {
+    return NextResponse.json({ error: "Gagal memuat statistik" }, { status: 500 });
+  }
 }

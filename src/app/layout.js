@@ -11,28 +11,33 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Metadata yang lebih deskriptif untuk tugas UAS Anda
 export const metadata = {
-  title: "Football Club Squad Manager | API Project",
-  description: "Platform API manajemen skuad klub sepak bola untuk tugas UAS Pemrograman API.",
+  title: "FC API HUB | Squad Manager",
+  description: "Platform manajemen skuad klub sepak bola untuk UAS Pemrograman API.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="id"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+    <html 
+      lang="id" 
+      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-gray-50 text-gray-900 font-sans">
+      {/* bg-slate-950: Background gelap 
+         text-slate-100: Warna teks cerah
+         antialiased: Membuat teks lebih halus di layar
+      */}
+      <body className="h-full bg-slate-950 text-slate-100 antialiased font-sans selection:bg-emerald-500 selection:text-white">
         
-        {/* Konten Utama */}
-        <main className="flex-grow">
+        {/* Wrapper utama agar konten tidak terlalu melebar 
+           dan tetap terlihat rapi di layar lebar
+        */}
+        <main className="min-h-screen">
           {children}
         </main>
 
-        {/* Footer Modern */}
-        <footer className="py-8 text-center text-gray-500 text-sm border-t mt-10">
-          <p>© 2026 Football Club Squad Manager. Dibuat untuk Ujian Akhir Semester Pemrograman API.</p>
+        {/* Opsional: Tambahkan Footer jika mau */}
+        <footer className="text-center p-6 text-slate-600 text-sm border-t border-slate-900">
+          UAS Pemrograman API - Football Squad Manager © 2026
         </footer>
         
       </body>
